@@ -14,7 +14,7 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #301934;
 
-  cursor: url('/mikucursor.png') 16 16, auto;
+  cursor: url('/mikucursor.png'), auto;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
