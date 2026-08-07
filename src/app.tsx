@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 export function Home() {
   return (
     <>
@@ -19,6 +21,8 @@ export function Home() {
 }
 
 export function Work() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <>
       <div className="work-page">
@@ -39,18 +43,30 @@ export function Work() {
               a more recent showcase of my web development skills. It's built to be super fancy and elegant,
               and has this neat "flavor network" feature that allows you to see how various cocktails are
               related to each other based on their ingredients.
+              <div className="gallery">
+                <img src="/mix_0.png" alt="OpenSwarm Dashboard Screenshot" onClick={() => setSelectedImage("/mix_0.png")} />
+                <img src="/mix_1.png" alt="OpenSwarm Spotify Integration Screenshot" onClick={() => setSelectedImage("/mix_1.png")} />
+                <img src="/mix_2.png" alt="OpenSwarm Spotify Integration Screenshot" onClick={() => setSelectedImage("/mix_2.png")} />
+              </div>
             </li>
+            <hr />
             <li>
               <a href="https://urbanwestsf.com" target="_blank" rel="noopener noreferrer">
                 👷 Urban West SF
               </a> - A website I improved for a local construction business in San Francisco. It's a simple, 
               clean website that showcases their products and services, and is built to be responsive and mobile-friendly.
+              <div className="gallery">
+                <img src="/uwsf_0.png" alt="Urban West SF Screenshot" onClick={() => setSelectedImage("/uwsf_0.png")} />
+                <img src="/uwsf_1.png" alt="Urban West SF Screenshot" onClick={() => setSelectedImage("/uwsf_1.png")} />
+              </div>
             </li>
+            <hr />
             <li>
               <a href="https://openswarm.com" target="_blank" rel="noopener noreferrer">
                 🐞 OpenSwarm
               </a> - I contributed a Spotify integration to this open-source application.
             </li>
+            <hr />
             <li>
               <a href="https://github.com/occultslolem" target="_blank" rel="noopener noreferrer">
                 🧑‍💻 My GitHub
@@ -60,6 +76,11 @@ export function Work() {
         </div>
         <a href="/">&lt;- Home</a>
       </div>
+      {selectedImage && (
+        <div className="modal" onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage} alt="Enlarged view" />
+        </div>
+      )}
     </>
   )
 }
