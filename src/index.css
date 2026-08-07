@@ -14,12 +14,17 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #301934;
 
-  cursor: url('/mikucursor.png'), auto;
+  cursor: auto;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  cursor: url('/mikucursor.png'), pointer;
 }
 
 html, body, #root {
@@ -40,6 +45,24 @@ html, body, #root {
   margin: 16px;
   background-color: #5c2f63;
   text-align: center;
+}
+
+.work-page {
+  /* BestTen lacks certain ligatures, so we disable them to avoid rendering issues */
+  font-variant-ligatures: none; 
+  font-feature-settings: 'liga' 0, 'clig' 0, 'calt' 0;
+
+  /* Center everything */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Give the work page a lot of padding */
+  padding: 32px;
+
+  /* Make bullet points cling to the text */
+  list-style-position: inside;
 }
 
 .horizontal {
